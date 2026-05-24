@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { X, Heart, Sparkles, Quote, BookOpen, Mail, PhoneCall } from 'lucide-react';
+import { X, Heart, Sparkles, Quote, BookOpen, Mail, MessageCircle } from 'lucide-react';
 import { useAppState } from '../context/AppContext';
 
 interface CEOProfileModalProps {
@@ -81,6 +81,16 @@ export default function CEOProfileModal({ isOpen, onClose, onOpenDonation }: CEO
                 >
                   <Mail className="w-3.5 h-3.5 text-amber-500" />
                   <span>Ivan direct</span>
+                </a>
+                <a 
+                  id="ceo-contact-link-whatsapp"
+                  href="https://wa.me/256705712325"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-2.5 py-1.5 bg-white/5 border border-white/10 hover:border-emerald-300 transition-colors rounded-lg flex items-center gap-1.5 text-white/90"
+                >
+                  <MessageCircle className="w-3.5 h-3.5 text-emerald-400" />
+                  <span>WhatsApp CEO</span>
                 </a>
                 <span className="text-white/20">|</span>
                 <span className="font-mono text-white/70">Verified Integrity & Stewardship Accreditations</span>

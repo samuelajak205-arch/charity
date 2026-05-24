@@ -18,7 +18,6 @@ export default function AuthModal({ isOpen, onClose, onSuccess }: AuthModalProps
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-  const [role, setRole] = useState<'user' | 'admin'>('user');
   
   // Feedback mechanisms
   const [errorMsg, setErrorMsg] = useState('');
@@ -31,7 +30,6 @@ export default function AuthModal({ isOpen, onClose, onSuccess }: AuthModalProps
     setName('');
     setEmail('');
     setPassword('');
-    setRole('user');
     setErrorMsg('');
     setSuccessMsg('');
   };
@@ -61,7 +59,7 @@ export default function AuthModal({ isOpen, onClose, onSuccess }: AuthModalProps
     // Simulate database latency
     setTimeout(() => {
       if (mode === 'signup') {
-        const response = signUp(name, email, password, role);
+        const response = signUp(name, email, password);
         if (response.success) {
           setSuccessMsg(response.message);
           setTimeout(() => {
@@ -217,39 +215,7 @@ export default function AuthModal({ isOpen, onClose, onSuccess }: AuthModalProps
                 </div>
               </div>
 
-              {mode === 'signup' && (
-                <div>
-                  <label className="block text-xs font-bold text-slate-600 uppercase tracking-widest mb-1.5 text-left font-mono">
-                    Select Account Role Scope
-                  </label>
-                  <div className="grid grid-cols-2 gap-2 mt-1">
-                    <button
-                      id="role-btn-user"
-                      type="button"
-                      onClick={() => setRole('user')}
-                      className={`py-2 text-center rounded-lg text-xs font-bold border transition-colors cursor-pointer ${
-                        role === 'user' 
-                          ? 'bg-sky-55 text-sky-700 bg-sky-50/50 border-sky-300' 
-                          : 'bg-white text-slate-550 border-slate-200 hover:bg-slate-50'
-                      }`}
-                    >
-                      Standard Supporter
-                    </button>
-                    <button
-                      id="role-btn-admin"
-                      type="button"
-                      onClick={() => setRole('admin')}
-                      className={`py-2 text-center rounded-lg text-xs font-bold border transition-colors cursor-pointer ${
-                        role === 'admin' 
-                          ? 'bg-amber-55 text-amber-800 bg-amber-50/50 border-amber-300' 
-                          : 'bg-white text-slate-550 border-slate-200 hover:bg-slate-50'
-                      }`}
-                    >
-                      Developer (Admin)
-                    </button>
-                  </div>
-                </div>
-              )}
+
 
               <button
                 id="submit-auth-btn"
