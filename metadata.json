@@ -1,0 +1,6 @@
+{
+  "name": "Good Samaritan for Children",
+  "description": "An MVP for Good Samaritan for Children charity, driven by the mission of 'GENATERATE' and the motto 'Speak up and judge fairly' (Proverbs 31:9) to support orphans, poor, widows, and war victims.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
